@@ -1,0 +1,5 @@
+alias k9='kill -9'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+alias cpr='cp -r'
+alias rr='rm -Rf'

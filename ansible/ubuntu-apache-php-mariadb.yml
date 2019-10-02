@@ -1,0 +1,48 @@
+---
+- hosts: lamp
+  become: yes
+  tasks:
+  - name: Repositorio certbot
+    apt_repository:
+      repo: 'ppa:certbot/certbot'
+  - name: Update
+    apt:
+      update_cache: yes
+  - name: Upgrade
+    apt:
+      name: "*"
+      state: latest
+  - name: install packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - git
+      - curl
+      - wget
+      - apache2
+      - tree
+      - certbot
+      - python-certbot-apache
+      - composer
+      - php-common
+      - php-xml
+      - php-mbstring
+      - php-tokenizer
+      - php-curl
+      - php-json
+      - php-zip
+      - php-cgi
+      - php-bcmath
+      - php-mysql
+      - mariadb-server
+      - mariadb-client
+      - build-essential
+  - name: Remove useless packages from the cache
+    apt:
+      autoclean: yes
+  - name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+
+# ansible-playbook ubuntu-apache-php-mariadb.yml -u ubuntu -k -K -vv

@@ -1,0 +1,53 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Repositorio certbot
+    apt_repository:
+      repo: 'ppa:certbot/certbot'
+  - name: Update
+    apt:
+      update_cache: yes
+  - name: Upgrade
+    apt:
+      name: "*"
+      state: latest
+  - name: install packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - git
+      - curl
+      - wget
+      - nginx
+      - tree
+      - certbot
+      - python-certbot-nginx
+      - build-essential
+  - name: Remove useless packages from the cache
+    apt:
+      autoclean: yes
+  - name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+  - block:
+    - name: Install nvm
+      shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+      args:
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    - name: Install node
+      shell: >
+        /bin/bash -c "source ~/.nvm/nvm.sh && nvm install --lts && nvm use --lts"
+        creates=/home/{{ ansible_user_id }}/.nvm/alias
+    - name: Install pm2
+      npm: name=pm2 global=yes production=yes
+      environment:
+        PATH: "/home/ubuntu/.nvm/versions/node/v{{nvm_node_version}}/bin:{{ ansible_env.PATH }}"
+    vars: 
+    - nvm_node_version: "10.16.3"
+    become: yes
+    become_user: ubuntu
+
+# ansible-playbook ubuntu-nginx-nvm.yml -u ubuntu -k -K -vv

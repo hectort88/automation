@@ -1,0 +1,1 @@
+alias upd='sudo dnf update -y'

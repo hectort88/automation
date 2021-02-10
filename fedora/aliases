@@ -1,1 +1,2 @@
 alias upd='sudo dnf update -y'
+alias inst='sudo dnf install'

@@ -1,0 +1,2 @@
+# https://chocolatey.org/install
+choco install git putty mtputty python nodejs-lts r r.studio notepadplusplus 7zip filezilla heidisql gimp sourcetree postman vscode wireshark nmap advanced-ip-scanner 

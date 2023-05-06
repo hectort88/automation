@@ -29,6 +29,9 @@
 (add-to-list 'default-frame-alist '(alpha . (98 . 96)))
 (electric-pair-mode t)
 
+(setq c-default-style "linux"
+          c-basic-offset 4)
+
 (setq make-backup-files nil)
 
 (setq-default indent-tabs-mode nil)

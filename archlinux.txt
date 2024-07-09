@@ -1,7 +1,7 @@
-sudo pacman -Sy --needed curl tmux neovim wget btop htop ranger openssh p7zip docker docker-compose ufw nmap putty less rsync unrar zsh xorg-xwayland
-sudo pacman -Sy --needed vlc libreoffice-fresh gimp gimp-plugin-gmic firefox ffmpeg celluloid yt-dlp evince cool-retro-term tilix sshfs xdg-desktop-portal bluez bluez-utils gnome-tweaks
-sudo pacman -Sy --needed base-devel git r clang ncurses ghex dotnet-sdk dotnet-runtime aspnet-runtime jdk8-openjdk kubectl dbeaver vagrant virtualbox virtualbox-host-modules-arch virtualbox-guest-iso
-sudo pacman -Sy --needed base-devel r spyder
+sudo pacman -Sy --needed curl tmux neovim wget btop htop ranger openssh p7zip docker docker-compose ufw nmap putty less rsync unrar zsh xorg-xwayland bash-completion
+\ vlc libreoffice-fresh gimp gimp-plugin-gmic firefox ffmpeg celluloid yt-dlp evince cool-retro-term tilix sshfs xdg-desktop-portal bluez bluez-utils gnome-tweaks wine
+\ base-devel git r clang ncurses ghex dotnet-sdk dotnet-runtime aspnet-runtime jdk8-openjdk kubectl dbeaver vagrant virtualbox virtualbox-host-modules-arch virtualbox-guest-iso
+\ base-devel r spyder
 
 sudo usermod -aG docker hctr
 
@@ -20,6 +20,7 @@ flatpak install flathub org.keepassxc.KeePassXC
 flatpak install flathub io.github.shiftey.Desktop
 flatpak install flathub com.valvesoftware.SteamLink
 flatpak install flathub org.localsend.localsend_app
+flatpak install flathub org.kde.audiotube
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

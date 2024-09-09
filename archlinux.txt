@@ -1,10 +1,10 @@
 sudo pacman -Sy --needed curl tmux neovim wget btop htop ranger openssh p7zip 
 \ docker docker-compose ufw nmap putty less rsync unrar zsh xorg-xwayland bash-completion
 \ vlc libreoffice-fresh gimp gimp-plugin-gmic firefox ffmpeg yt-dlp evince cool-retro-term 
-\ tilix sshfs xdg-desktop-portal bluez bluez-utils gnome-tweaks wine 
+\ tilix sshfs xdg-desktop-portal bluez bluez-utils gnome-tweaks wine noto-fonts-cjk noto-fonts-emoji
 \ base-devel git r clang ncurses ghex dotnet-sdk dotnet-runtime aspnet-runtime 
 \ jdk8-openjdk kubectl dbeaver vagrant virtualbox virtualbox-host-modules-arch 
-\ virtualbox-guest-iso base-devel r spyder
+\ virtualbox-guest-iso base-devel r spyder nasm xwaylandvideobridge
 
 sudo usermod -aG docker hctr
 

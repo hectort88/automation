@@ -1,10 +1,11 @@
-sudo pacman -Sy --needed curl tmux neovim wget btop htop ranger openssh p7zip 
+sudo pacman -Sy --needed curl tmux neovim wget btop htop ranger openssh p7zip gnupg
 \ docker docker-compose ufw nmap putty less rsync unrar zsh xorg-xwayland bash-completion
-\ vlc libreoffice-fresh gimp gimp-plugin-gmic firefox ffmpeg yt-dlp evince cool-retro-term 
+\ vlc libreoffice-fresh blender gimp gimp-plugin-gmic firefox ffmpeg yt-dlp evince cool-retro-term 
 \ tilix sshfs xdg-desktop-portal bluez bluez-utils gnome-tweaks wine noto-fonts-cjk noto-fonts-emoji
-\ base-devel git r clang ncurses ghex dotnet-sdk dotnet-runtime aspnet-runtime 
-\ jdk8-openjdk kubectl dbeaver vagrant virtualbox virtualbox-host-modules-arch 
-\ virtualbox-guest-iso dnsmasq base-devel r spyder nasm xwaylandvideobridge
+\ base-devel git clang ncurses go rust dotnet-sdk dotnet-runtime aspnet-runtime idle3-tools
+\ jdk8-openjdk kubectl dbeaver virtualbox virtualbox-host-modules-arch 
+\ virtualbox-guest-iso dnsmasq r spyder nasm xwaylandvideobridge ansible
+\ adobe-source-code-pro-fonts
 
 sudo usermod -aG docker hctr
 
@@ -16,14 +17,16 @@ sudo ufw allow 53317,1714:1764/udp
 
 flatpak install flathub md.obsidian.Obsidian
 flatpak install flathub com.brave.Browser
-flatpak install flathub com.discordapp.Discord
 flatpak install flathub org.telegram.desktop
 flatpak install flathub com.github.tchx84.Flatseal
 flatpak install flathub org.keepassxc.KeePassXC
 flatpak install flathub io.github.shiftey.Desktop
-flatpak install flathub com.valvesoftware.SteamLink
 flatpak install flathub org.localsend.localsend_app
 flatpak install flathub org.kde.audiotube
+flatpak install flathub org.nmap.Zenmap
+flatpak install flathub io.missioncenter.MissionCenter
+flatpak install flathub com.github.unrud.VideoDownloader
+flatpak install flathub io.freetubeapp.FreeTube
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

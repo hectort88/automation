@@ -5,7 +5,7 @@ tilix sshfs xdg-desktop-portal bluez bluez-utils wine noto-fonts-cjk noto-fonts-
 base-devel git clang ncurses go rust dotnet-sdk dotnet-runtime aspnet-runtime idle3-tools \
 jdk8-openjdk kubectl dbeaver virtualbox virtualbox-host-modules-arch \
 virtualbox-guest-iso dnsmasq r spyder nasm xwaylandvideobridge ansible bat \
-adobe-source-code-pro-fonts audacious
+adobe-source-code-pro-fonts audacious inkscape
 
 sudo usermod -aG docker hctr
 

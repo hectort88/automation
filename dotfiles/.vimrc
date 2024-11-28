@@ -12,5 +12,5 @@ set fileencoding=utf-8
 set ai ts=4 expandtab
 set tabstop=4
 set mouse=r
-set syuntax=on
+set syntax=on
 set shiftwidth=4

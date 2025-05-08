@@ -6,7 +6,7 @@ vlc libreoffice-fresh blender gimp gimp-plugin-gmic firefox ffmpeg yt-dlp cool-r
 tilix sshfs xdg-desktop-portal bluez bluez-utils wine noto-fonts-cjk noto-fonts-emoji \
 base-devel git clang ncurses go rust dotnet-sdk dotnet-runtime aspnet-runtime idle3-tools \
 jdk8-openjdk kubectl dbeaver virtualbox virtualbox-host-modules-arch virtualbox-guest-iso \
-dnsmasq r spyder nasm ansible bat audacious inkscape sfml ghc tree \
+dnsmasq r spyder nasm ansible bat audacious inkscape sfml ghc tree krita krita-plugin-gmic \
 adobe-source-code-pro-fonts ttf-droid ttf-cascadia-code ttf-ibm-plex
 
 sudo usermod -aG docker $USER

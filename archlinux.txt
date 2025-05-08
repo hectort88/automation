@@ -9,7 +9,7 @@ jdk8-openjdk kubectl dbeaver virtualbox virtualbox-host-modules-arch virtualbox-
 dnsmasq r spyder nasm ansible bat audacious inkscape sfml ghc tree \
 adobe-source-code-pro-fonts ttf-droid ttf-cascadia-code ttf-ibm-plex
 
-sudo usermod -aG docker hctr
+sudo usermod -aG docker $USER
 
 sudo systemctl enable {ufw,sshd,docker,bluetooth}.service
 

@@ -13,6 +13,7 @@ terminus-font okular ktorrent gwenview
 sudo usermod -aG docker $USER
 
 sudo systemctl enable {ufw,sshd,docker,bluetooth}.service
+sudo systemctl enable docket.socket
 
 sudo ufw enable
 sudo ufw allow 22,53317,1714:1764/tcp

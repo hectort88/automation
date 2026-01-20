@@ -1,0 +1,76 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Upgrade all packages
+    apt:
+      name: "*"
+      state: latest
+
+  - name: Install required packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - git
+      - curl
+      - wget
+      - apache2
+      - tree
+      - certbot
+      - python3-certbot-apache
+      - build-essential
+
+  - name: Add Microsoft package repository
+    shell: |
+      wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+      dpkg -i packages-microsoft-prod.deb
+      rm packages-microsoft-prod.deb
+    args:
+      creates: /etc/apt/sources.list.d/microsoft-prod.list
+
+  - name: Update apt cache after adding Microsoft repo
+    apt:
+      update_cache: yes
+
+  - name: Install .NET SDK and Runtime
+    apt:
+      name: "{{ dotnet_packages }}"
+    vars:
+      dotnet_packages:
+      - dotnet-sdk-10.0
+      - aspnetcore-runtime-10.0
+      - dotnet-runtime-10.0
+
+  - name: Enable Apache modules for reverse proxy
+    apache2_module:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - proxy
+      - proxy_http
+      - proxy_wstunnel
+      - rewrite
+      - headers
+    notify: restart apache
+
+  - name: Remove useless packages from cache
+    apt:
+      autoclean: yes
+
+  - name: Remove dependencies no longer required
+    apt:
+      autoremove: yes
+
+  handlers:
+  - name: restart apache
+    service:
+      name: apache2
+      state: restarted
+
+# Usage:
+# ansible-playbook ubuntu-asp-dotnet.yml -u ubuntu -k -K -vv
